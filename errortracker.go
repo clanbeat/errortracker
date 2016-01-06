@@ -2,7 +2,7 @@ package errortracker
 
 import (
 	"errors"
-	"github.com/clanbeat/core_api/Godeps/_workspace/src/github.com/getsentry/raven-go"
+	"github.com/getsentry/raven-go"
 	"log"
 )
 
