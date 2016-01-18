@@ -42,6 +42,13 @@ func (t *Tracker) Error(err error) {
 	}
 }
 
+func (t *Tracker) ErrorAndWait(err error) {
+	log.Println(err)
+	if t.Client != nil {
+		t.Client.CaptureErrorAndWait(err, nil)
+	}
+}
+
 func (t *Tracker) Message(msg string) {
 	if t.Client != nil {
 		t.Client.CaptureMessage(msg, nil)
