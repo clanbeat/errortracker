@@ -36,14 +36,14 @@ func (t *Tracker) Wait() {
 }
 
 func (t *Tracker) Error(err error) {
-	log.Println(err)
+	logError(err)
 	if t.Client != nil {
 		t.Client.CaptureError(err, nil)
 	}
 }
 
 func (t *Tracker) ErrorAndWait(err error) {
-	log.Println(err)
+	logError(err)
 	if t.Client != nil {
 		t.Client.CaptureErrorAndWait(err, nil)
 	}
@@ -66,4 +66,8 @@ func (t *Tracker) Recover(msg interface{}) {
 		err = errors.New("Unknown error")
 	}
 	t.Error(err)
+}
+
+func logError(err error){
+	log.Println("[error_tracker]:", err)
 }
