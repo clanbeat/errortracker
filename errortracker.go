@@ -65,7 +65,7 @@ func (t *Tracker) Recover(msg interface{}) {
 	default:
 		err = errors.New("Unknown error")
 	}
-	t.Error(err)
+	t.ErrorAndWait(err)
 }
 
 func logError(err error){
